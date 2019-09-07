@@ -1,0 +1,49 @@
+<h1 class="text-center">Artist Category  CRUD </h1>
+<h3 class="text-center" *ngIf="artistIdToUpdate; else create">
+Update Artist Category for Id: {{artistIdToUpdate}}
+</h3>
+<ng-template #create>
+<h3 class="text-center"> Create New Article </h3>
+</ng-template>
+<div>
+<form [formGroup]="artistCategoryForm" (ngSubmit)="onArticleFormSubmit()">
+<table class="table-striped" style="margin:0 auto;">
+
+<tr><td>Category Name : </td><td><input formControlName="category_name">
+   <label *ngIf="artistCategoryForm.get('category_name').invalid && processValidation" [ngClass] = "'error'"> Category is required. </label>
+  </td></tr>  
+<tr><td colspan="2">
+   <button class="btn btn-default" *ngIf="!artistIdToUpdate">CREATE</button>
+    <button class="btn btn-default" *ngIf="artistIdToUpdate">UPDATE</button>
+   <button (click)="backToCreateArtist()" *ngIf="artistIdToUpdate">Go Back</button>
+  </td></tr>
+</table>
+</form>
+<br/>
+<div class="text-center" *ngIf="statusCode; else processing">
+<div *ngIf="statusCode === 201" [ngClass] = "'success'">
+   Article added successfully.
+</div>
+<div *ngIf="statusCode === 409" [ngClass] = "'success'">
+Article already exists.
+</div>   
+<div *ngIf="statusCode === 200" [ngClass] = "'success'">
+Article updated successfully.
+</div>   
+<div *ngIf="statusCode === 204" [ngClass] = "'success'">
+Article deleted successfully.
+</div>   
+<div *ngIf="statusCode === 500" [ngClass] = "'error'">
+Internal Server Error.
+</div> 
+</div>
+ 
+<h3 class="text-center">Artist Category List</h3>
+<table class="table-striped" style="margin:0 auto;" *ngIf="allArtist">
+<tr><th> Id</th>  <th>Category</th><th></th><th></th></tr>
+<tr *ngFor="let article of allArtist;let i = index" >
+<td>{{i +1 }}</td>   <td>{{article.category_name}}</td>
+  <td><button class="btn btn-default" type="button" (click)="loadArtistToEdit(article.cat_id)">Edit</button> </td>
+  <td><button class="btn btn-default" type="button" (click)="deleteArtist(article.cat_id)">Delete</button></td>
+</tr>
+</table>
