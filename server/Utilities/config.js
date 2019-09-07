@@ -7,7 +7,7 @@ let serverURLs = {
 "MYSQL_HOST": 'localhost',
 "MYSQL_USER": 'root',
 "MYSQL_PASSWORD": '',
-'MYSQL_DATABASE': 'demo_angular7_crud',
+'MYSQL_DATABASE': 'startrail',
 }
 }
  

@@ -6,7 +6,8 @@ cors = require('cors'),
 http = require('http'),
 path = require('path');
  
-let articleRoute = require('./Routes/article'),
+let articleRoute = require('./Routes/article');
+let artistRoute = require('./Routes/artist');
 util = require('./Utilities/util');
  
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ return res.send({ "statusCode": util.statusCode.ONE, "statusMessage": util.statu
 });
  
 app.use('/article', articleRoute);
+app.use('/artist', artistRoute);
  
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

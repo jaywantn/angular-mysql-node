@@ -26,7 +26,7 @@ res.send(data);
  
 /**Api to get the list of article */
 router.get('/get-article', (req, res) => {
-documentService.getArticle(req.query, (data) => {
+    articleService.getArticle(req.query, (data) => {
 res.send(data);
 });
 });
