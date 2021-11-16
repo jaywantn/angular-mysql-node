@@ -6,7 +6,7 @@
   "author": "Jaywant Narwade",
   "dependencies": {
     "async": "^1.5.2",
-    "aws-sdk": "^2.16.0",
+    "aws-sdk": "^2.814.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.4",
     "cron": "^1.2.1",
