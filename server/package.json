@@ -5,7 +5,7 @@
   "main": "server.js",
   "author": "Jaywant Narwade",
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^2.6.4",
     "aws-sdk": "^2.16.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.4",
